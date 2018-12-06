@@ -1,0 +1,7 @@
+.btn-group
+  %button.btn.btn-secondary.btn-lg.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+    Select Classification Categories
+  %ul.dropdown-menu
+    - @classifications.each do |classification|
+      %li= link_to(classification.identifier, classifications_show_path(identifier: classification.identifier), :method => :get)
+

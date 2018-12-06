@@ -1,0 +1,7 @@
+=  "Not Funny Percentage:"
+.progress
+  .progress-bar.progress-bar-striped.progress-bar-animated{"aria-valuemax"=> "100", "aria-valuemax" => "100",
+  "aria-valuemin" => "0", "aria-valuenow" => "75", :role => "progressbar", :style => "width: 75%"}
+
+=link_to 'Right', classifications_train_path(:sentence => @sentence), class: 'btn btn-success', :method => :post
+=link_to 'Wrong', classifications_train_path(:sentence => @sentence), class: 'btn btn-danger', :method => :post
