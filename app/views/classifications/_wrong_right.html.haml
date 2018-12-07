@@ -1,0 +1,4 @@
+=link_to 'Right', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => true, :answer => @answer),
+ class: 'btn btn-success', :method => :post
+=link_to 'Wrong', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => false, :answer => @answer),
+ class: 'btn btn-danger', :method => :post

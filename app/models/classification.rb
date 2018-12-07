@@ -6,10 +6,9 @@ class Classification < ActiveRecord::Base
   def self.train(params)
     @classification =  Classification.find(params["classification_id"].to_i)
     words = Word.word_hash(params["sentence"])
-    Word.create_words(words)
     @classification.categories.each do |category|
-      if (category.identifier == params["answer"] && params["success"] == "true") ||
-          (category.identifier != params["answer"] && params["success"] == "false")
+      if (category.name == params["answer"] && params["success"] == "true") ||
+          (category.name != params["answer"] && params["success"] == "false")
         category.add_success_counts(words)
       else
         category.add_failure_counts(words)

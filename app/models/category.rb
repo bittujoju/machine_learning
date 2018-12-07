@@ -21,4 +21,14 @@ class Category < ActiveRecord::Base
     end
     self.word_count += words.count
   end
+
+  def category_score(words)
+    score = 0.00
+    words.each do |w|
+      word = Word.find_by_identifier(w)
+      cw = CategoriesWords.find_or_create_by(category_id: self.id, word_id: word.id)
+      score += (cw.success_count.to_f / (cw.success_count + cw.failure_count + 1))
+    end
+    score / words.count
+  end
 end

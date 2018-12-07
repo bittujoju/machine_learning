@@ -1,6 +1,6 @@
 %h2
   = @classification.name
-=form_tag classifications_classify_path, method: :post do
+=form_tag classifications_classify_path, remote: true do
   .form-group
     .input-group.mb-3
       .input-group-prepend
@@ -8,3 +8,6 @@
       =text_field_tag 'Classify', '', class: 'form-control', type: 'text'
       =hidden_field_tag 'classification_id', @classification.id
   =submit_tag 'Classify', :class => "btn btn-success"
+
+#results
+#rightwrong

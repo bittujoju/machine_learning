@@ -1,0 +1,3 @@
+var result=document.getElementById("results");
+result.innerHTML="<%= @sentence + " is " + @answer%>"
+$('#rightwrong').append("<%= j render(:partial => 'classifications/wrong_right') %>")
