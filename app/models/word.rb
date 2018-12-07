@@ -16,4 +16,9 @@ class Word < ActiveRecord::Base
   def self.sentence_to_word(sentence)
     sentence.to_s.gsub(/[^\w\s]/,"").split
   end
+
+  def self.snake_case(sentence)
+    no_space_word = sentence.gsub(/( )/, '_') || sentence
+    no_space_word.downcase
+  end
 end

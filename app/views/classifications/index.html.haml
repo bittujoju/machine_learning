@@ -4,4 +4,25 @@
   %ul.dropdown-menu
     - @classifications.each do |classification|
       %li= link_to(classification.identifier, classifications_show_path(id: classification.id), :method => :get)
+=link_to 'Back', root_path, class: 'btn btn-info'
 
+%button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample",
+ "data-toggle" => "collapse", :type => "button"}
+  New Categories
+
+#collapseExample.collapse
+  .card.card-body
+    %h2
+      = "Add New Categories"
+      =form_tag classifications_create_path do
+        .form-group
+          .input-group.mb-3
+            .input-group-prepend
+              %span.input-group-text Enter Category 1
+            =text_field_tag 'Category 1', '', class: 'form-control', type: 'text'
+          .input-group.mb-3
+            .input-group-prepend
+              %span.input-group-text Enter Category 2
+            =text_field_tag 'Category 2', '', class: 'form-control', type: 'text'
+
+        =submit_tag 'Create', :class => "btn btn-success"

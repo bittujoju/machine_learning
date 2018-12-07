@@ -15,4 +15,14 @@ class Classification < ActiveRecord::Base
       end
     end
   end
+
+  private
+
+  def self.create_from_categories(categories)
+    classification_name = categories.first.name + " or " + categories.second.name
+    classification_identifier = categories.first.identifier + " or " + categories.second.identifier
+    classification = Classification.find_or_create_by(identifier: classification_identifier, name: classification_name)
+    classification.categories << categories
+    classification
+  end
 end
