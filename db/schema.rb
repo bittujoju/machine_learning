@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20181207000517) do
   create_table "categories_words", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "category_id"
     t.integer "word_id"
-    t.integer "success_count", default: 0
-    t.integer "failure_count", default: 0
+    t.integer "success_count", default: 1
+    t.integer "failure_count", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

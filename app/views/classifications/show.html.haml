@@ -1,14 +1,15 @@
-%h2
-  = @classification.name
-=form_tag classifications_classify_path, remote: true do
-  .form-group
-    .input-group.mb-3
-      .input-group-prepend
-        %span.input-group-text Enter the sentence here
-      =text_field_tag 'Classify', '', class: 'form-control', type: 'text'
-      =hidden_field_tag 'classification_id', @classification.id
-  =submit_tag 'Classify', :class => "btn btn-success"
-  =link_to 'Back', root_path, class: 'btn btn-info'
+.div#sentence-area.center
+  %h2
+    = @classification.name
+  =form_tag classifications_classify_path, remote: true do
+    .form-group
+      .input-group.mb-3
+        .input-group-prepend
+          %span.input-group-text Enter the sentence here
+        =text_field_tag 'Classify', '', class: 'form-control', type: 'text'
+        =hidden_field_tag 'classification_id', @classification.id
+    =submit_tag 'Classify', :class => "btn btn-success", disable_with: "Please wait...", id: "classify-button"
+    =link_to 'Back', root_path, class: 'btn btn-info'
 
 
 #results
