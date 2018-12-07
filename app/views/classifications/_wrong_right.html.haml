@@ -1,4 +1,12 @@
+%h4
+  = @sentence + " is "
+%h2#answer
+  = @answer
+%br
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "50", :role => "progressbar", :style => "width: #{@percentage}%;"} #{@answer} : #{@percentage} %
+%br
 =link_to 'Right', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => true, :answer => @answer),
- class: 'btn btn-success', :method => :post
+  class: 'btn btn-success', :method => :post
 =link_to 'Wrong', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => false, :answer => @answer),
- class: 'btn btn-danger', :method => :post
+  class: 'btn btn-danger', :method => :post

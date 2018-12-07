@@ -10,6 +10,7 @@ class Category < ActiveRecord::Base
       cw.save
     end
     self.word_count += words.count
+    self.save
   end
 
   def add_failure_counts(words)
@@ -20,6 +21,7 @@ class Category < ActiveRecord::Base
       cw.save
     end
     self.word_count += words.count
+    self.save
   end
 
   def category_score(words)

@@ -23,6 +23,8 @@ class ClassificationsController < ApplicationController
     words = Word.sentence_to_word(@sentence)
     Word.create_words(words)
     category = @classification.categories.max {|category_1, category_2| category_1.category_score(words) <=> category_2.category_score(words)}
+    @percentage = ((category.category_score(words) / @classification.categories.sum {|category| category.category_score(words)}) * 100).round(2)
+    @percentage = @percentage.nan? ? 50.00 : @percentage
     @answer = category.name
   end
 
