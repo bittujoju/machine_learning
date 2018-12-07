@@ -7,6 +7,10 @@ class Word < ActiveRecord::Base
     words.uniq
   end
 
+  def self.create_words(words)
+    words.each {|word| Word.find_or_create_by(identifier: word)}
+  end
+
   private
 
   def self.sentence_to_word(sentence)

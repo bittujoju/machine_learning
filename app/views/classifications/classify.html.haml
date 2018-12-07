@@ -1,7 +1,10 @@
-=  "Not Funny Percentage:"
-.progress
-  .progress-bar.progress-bar-striped.progress-bar-animated{"aria-valuemax"=> "100", "aria-valuemax" => "100",
-  "aria-valuemin" => "0", "aria-valuenow" => "75", :role => "progressbar", :style => "width: 75%"}
+%h4
+  = @sentence + " is " + "Not Funny"
+-#.progress
+-#  .progress-bar.progress-bar-striped.progress-bar-animated{"aria-valuemax"=> "100", "aria-valuemax" => "100",
+-#  "aria-valuemin" => "0", "aria-valuenow" => "75", :role => "progressbar", :style => "width: 75%"}
 
-=link_to 'Right', classifications_train_path(:sentence => @sentence), class: 'btn btn-success', :method => :post
-=link_to 'Wrong', classifications_train_path(:sentence => @sentence), class: 'btn btn-danger', :method => :post
+=link_to 'Right', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => true, :answer => 'not_funny'),
+ class: 'btn btn-success', :method => :post
+=link_to 'Wrong', classifications_train_path(:sentence => @sentence, :classification_id => @classification.id, :success => false, :answer => 'not_funny'),
+ class: 'btn btn-danger', :method => :post

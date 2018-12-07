@@ -3,5 +3,5 @@
     Select Classification Categories
   %ul.dropdown-menu
     - @classifications.each do |classification|
-      %li= link_to(classification.identifier, classifications_show_path(identifier: classification.identifier), :method => :get)
+      %li= link_to(classification.identifier, classifications_show_path(id: classification.id), :method => :get)
 
