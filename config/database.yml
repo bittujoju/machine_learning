@@ -17,8 +17,7 @@ development:
 production:
   <<: *default
   host: ec2-54-225-196-122.compute-1.amazonaws.com
-  port: 5432
-  url: postgres://xzitvddqdipoae:4ed99bd627a67a5bc354ec670e33496587537d22d37962f9b98f9fddce2571ab@ec2-54-225-196-122.compute-1.amazonaws.com:5432/d6b58o7a7vet1t
+  url: <%= ENV['DATABASE_URL'] %>
   database: d6b58o7a7vet1t
   username: xzitvddqdipoae
   password: 4ed99bd627a67a5bc354ec670e33496587537d22d37962f9b98f9fddce2571ab
